@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toxic Comment Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff; /* Light blue background */
+            padding: 40px;
+            min-height: 100vh; /* Ensures footer stays at bottom */
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1; /* Allows content to expand and push footer down */
+        }
+        .container {
+            max-width: 600px; /* Limits content width */
+            margin: 0 auto; /* Centers the content */
+        }
+        h1 {
+            color: #0056b3; /* Darker blue for contrast */
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 80%; /* Responsive width */
+            max-width: 500px;
+            height: 100px;
+            border: 1px solid #99ccff; /* Light blue border */
+            background-color: #f0f8ff; /* Very light blue background */
+        }
+        input[type="submit"] {
+            background-color: #3399ff; /* Medium blue button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #007bff; /* Darker blue on hover */
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result p {
+            color: #333; /* Dark gray for readability */
+        }
+        .error {
+            color: red;
+        }
+        footer {
+            background-color: #cce5ff; /* Slightly darker blue for footer */
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #99ccff; /* Light blue separator */
+        }
+        footer p {
+            margin: 5px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <h1>Toxic Comment Classifier</h1>
+            <form method="post">
+                <label for="text">Enter text:</label><br>
+                <textarea id="text" name="text" placeholder="Type your text here..."></textarea><br><br>
+                <input type="submit" value="Classify">
+            </form>
+            
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            
+            {% if prediction %}
+                <div class="result">
+                    <p><strong>Text:</strong> "{{ text }}"</p>
+                    <p><strong>Classification:</strong> {{ prediction }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+        <p>Name: WIN MYINT@HTET WAI YAN HTUT</p>
+        <p>ID: st125326</p>
+    </footer>
+</body>
+</html>
